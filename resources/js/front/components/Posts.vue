@@ -3,10 +3,6 @@
         <div class="post" v-for="(post, index) in posts" :key="index">
             <div class="post-img">
                 <img v-if="post.image" :src="`/storage/${post.image}`" />
-                <img
-                    v-else
-                    src="https://venngage-wordpress.s3.amazonaws.com/uploads/2018/09/Colorful-Circle-Simple-Background-Image-1.jpg"
-                />
             </div>
 
             <div class="post-text">
@@ -114,19 +110,19 @@ export default {
 
         &-read {
             a {
-                color: #ff5e14;
+                color: #f27927;
                 font-weight: bold;
                 text-decoration: none;
 
                 &:hover {
-                    color: #212a40;
+                    color: #00334b;
                 }
             }
         }
 
         &-tags {
             span {
-                background-color: #212a40;
+                background-color: #00334b;
                 color: #fff;
                 margin: 0 5px;
                 padding: 1.5px 4px;

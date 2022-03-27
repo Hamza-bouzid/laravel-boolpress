@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Header />
+        <Header  v-if="!['page-404'].includes($route.name)" />
         <Main />
         <Footer />
     </div>

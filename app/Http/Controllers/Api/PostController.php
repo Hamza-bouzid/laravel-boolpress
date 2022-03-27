@@ -28,8 +28,14 @@ class PostController extends Controller
        
     }
 
-    public function show($id)
+    public function show($slug)
     {
-        return Post::find($id);
+
+       $post = Post::where('slug', $slug)->with(["category", "tags"])->first();
+       if( empty($post) ) {
+         return response()->json(["message" => "Post Not Found"], 404);
+       }
+        return response()->json($post);
+         
     }
 }

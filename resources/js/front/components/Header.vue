@@ -28,13 +28,16 @@ header {
     padding: 10px 0px;
 
     .logo {
-        font-size: 40px;
-        text-transform: uppercase;
+        a {
+            font-size: 40px;
+            text-transform: uppercase;
+        }
     }
 
     a {
         text-decoration: none;
         color: #fff;
+        font-size: 18px;
     }
 
     nav {
@@ -46,7 +49,7 @@ header {
 
         a {
             &:hover {
-                color: #43a1b4;
+                color: #f27927;
             }
         }
     }
