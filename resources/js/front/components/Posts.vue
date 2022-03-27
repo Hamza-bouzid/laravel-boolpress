@@ -1,10 +1,15 @@
 <template>
     <div class="posts">
         <div class="post" v-for="(post, index) in posts" :key="index">
+            <div class="post-date_shadow">
+                <div class="post-date">
+                    <span>{{ getDate(post.created_at) }}</span>
+                </div>
+            </div>
+
             <div class="post-img">
                 <img v-if="post.image" :src="`/storage/${post.image}`" />
             </div>
-
             <div class="post-text">
                 <div class="post-category">
                     <span v-if="post.category">{{ post.category.name }}</span>
@@ -21,7 +26,7 @@
                 <div class="post-read">
                     <router-link
                         :to="{ name: 'post', params: { slug: post.slug } }"
-                        >Read More</router-link
+                        >Leggi Post</router-link
                     >
                 </div>
             </div>
@@ -52,6 +57,14 @@ export default {
                     console.log(error);
                 });
         },
+
+        getDate: function (date) {
+            return new Date(date).toLocaleDateString("it", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+            });
+        },
     },
 
     created() {
@@ -75,6 +88,7 @@ export default {
         background-color: #fff;
         -webkit-box-shadow: 0px 0px 12px -1px rgba(0, 0, 0, 0.3);
         box-shadow: 0px 0px 12px -1px rgba(0, 0, 0, 0.3);
+        position: relative;
 
         &-text {
             height: 300px;
@@ -86,8 +100,21 @@ export default {
             position: relative;
         }
 
+        &-date {
+            background-color: #f27927;
+            color: #fff;
+            text-transform: uppercase;
+            text-align: center;
+            position: absolute;
+            width: 100px;
+            height: 60px;
+            left: 20px;
+            top: -8px;
+            clip-path: polygon(100% 0, 100% 100%, 50% 72%, 0 100%, 0 0);
+        }
+
         &-category {
-            background-color: #ff5e14;
+            background-color: #00334b;
             color: #fff;
             text-align: center;
             font-size: 20px;
@@ -135,5 +162,9 @@ export default {
             height: 100%;
         }
     }
+}
+
+.post-date_shadow {
+    filter: drop-shadow(-1px 6px 3px rgba(0, 0, 0, 0.4));
 }
 </style>

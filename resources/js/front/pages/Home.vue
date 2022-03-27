@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Latest Posts</h1>
+        <h1>Ultimi Post</h1>
         <Posts />
     </div>
 </template>

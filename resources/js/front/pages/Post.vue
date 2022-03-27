@@ -8,11 +8,16 @@
         </div>
         <h1>{{ post.title }}</h1>
         <div class="post.content" v-html="post.content">{{ post.content }}</div>
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <span v-for="tag in post.tags" :key="tag.slug">
-                {{ tag.name }}
-            </span>
+        <div class="post-date-tags">
+            <div class="post-date">
+                <span>{{ getDate(post.created_at) }}</span>
+            </div>
+            <div class="post-tags">
+                <i class="fa fa-tags" aria-hidden="true"></i>
+                <span v-for="tag in post.tags" :key="tag.slug">
+                    {{ tag.name }}
+                </span>
+            </div>
         </div>
     </div>
 </template>
@@ -26,6 +31,15 @@ export default {
             post: {},
         };
     },
+    methods: {
+        getDate: function (date) {
+            return new Date(date).toLocaleDateString("it", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+            });
+        },
+    },
 
     created() {
         axios
@@ -35,7 +49,7 @@ export default {
                 console.log(this.post);
             })
             .catch((error) => {
-                this.$router.push({name: 'page-404'})
+                this.$router.push({ name: "page-404" });
             });
     },
 };
@@ -65,7 +79,18 @@ export default {
         }
     }
 
+    &-date-tags {
+        display: flex;
+    }
+
+    &-date {
+        color: rgb(133, 133, 133);
+        padding: 0px 10px 0px 0px;
+        border-right: 1px solid rgba(0, 0, 0, 0.5);
+    }
+
     &-tags {
+        padding-left: 5px;
         span {
             background-color: #00334b;
             color: #fff;

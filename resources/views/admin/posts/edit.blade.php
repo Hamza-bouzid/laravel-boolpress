@@ -14,7 +14,7 @@
   </header>
 
   <main>
-    <form action="{{route('admin.posts.update', $post->id)}}" method="POST">
+    <form action="{{route('admin.posts.update', $post->id)}}" method="POST"  enctype="multipart/form-data">
       @method("PUT")
       @csrf
       <div class="form-group">
@@ -28,6 +28,13 @@
         <label for="formGroupExampleInput2" class="font-weight-bold">Content</label>
         <textarea name="content" class="form-control" id="content"  cols="30" rows="10" placeholder="Scrivi qualcosa...">{{old('content',$post->content)}}</textarea>
         @error('content')
+          <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput" class="font-weight-bold">Image</label>
+        <input type="file" class="form-control" name="image" id="image">
+        @error('image')
           <div class="alert alert-danger">{{ $message }}</div>
         @enderror
       </div>

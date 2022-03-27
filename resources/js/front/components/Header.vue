@@ -6,7 +6,7 @@
         <nav>
             <li><router-link :to="{ name: 'home' }">Home</router-link></li>
             <li>
-                <router-link :to="{ name: 'about-us' }">About Us</router-link>
+                <router-link :to="{ name: 'about-us' }">Chi Siamo</router-link>
             </li>
         </nav>
     </header>

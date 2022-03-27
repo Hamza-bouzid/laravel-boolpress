@@ -17,7 +17,7 @@ class PostController extends Controller
         'title' => 'required|max:255',
         'content' => 'required',
         'category_id' => 'nullable|exists:categories,id',
-        'image'=>'nullable|image|mimes:jpeg,jpg,png,bmp,gif,svg',
+        'image'=>'required|image|mimes:jpeg,jpg,png,bmp,gif,svg',
         'tags' => 'nullable|exists:tags,id'
      ];
 
@@ -134,6 +134,14 @@ class PostController extends Controller
             }
             
         }
+
+        if(isset($data['image'])) {
+            //salvare l'immagine
+            $img_path = Storage::put('uploads', $data['image']);
+            // salvare il percorso sul post nel DB
+            $data['image'] = $img_path;
+        }
+        
         $data['slug']= $slugTmp;
         $post->update($data);
         $post->tags()->sync(isset($data['tags']) ? $data['tags'] : [] );

@@ -4,11 +4,8 @@
             <h1>Oopss!</h1>
             <h3>We can't seem to find the page you're looking for</h3>
             <span>Error code: 404</span>
-            <button>
-                <router-link :to="{ name: 'home' }"
-                    >Back to Home Page</router-link
-                >
-            </button>
+
+            <router-link :to="{ name: 'home' }">Back to Home Page</router-link>
         </div>
     </div>
 </template>
@@ -53,16 +50,11 @@ export default {
             color: #00334b;
             margin-bottom: 20px;
         }
-
-        button {
+        a {
             background-color: #f27927;
-            border: none;
-            padding: 8px 25px;
-
-            a {
-                color: #fff;
-                text-decoration: none;
-            }
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 25px;
         }
     }
 }
