@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\PostController;
+use App\Http\Controllers\Api\CategoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +25,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('posts' , [PostController::class, 'index']);
 Route::get('posts/search/{title}' , [PostController::class, 'search']);
 Route::get('posts/{slug}' , [PostController::class, 'show']);
+Route::get('categories' , [CategoryController::class, 'index']);
+Route::get('categories/{slug}' , [CategoryController::class, 'show']);
 //Route::resource('posts', PostController::class);
 
 // Rotte Protette

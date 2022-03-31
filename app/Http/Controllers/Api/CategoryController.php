@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Api;
 
+use App\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class CaregoryController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,9 @@ class CaregoryController extends Controller
      */
     public function index()
     {
-        
+        $categories = Category::with("posts")->get();
+
+        return response()->json($categories);
     }
 
     /**
@@ -44,9 +47,15 @@ class CaregoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $category = Category::where("slug", $slug)->with('posts')->first();
+
+        if(empty($category)) {
+            return response()->json(["message" => "Category not Found"], 404);
+        }
+
+        return response()->json($category);
     }
 
     /**

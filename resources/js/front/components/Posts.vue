@@ -73,7 +73,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .posts {
     display: flex;
     justify-content: space-between;
