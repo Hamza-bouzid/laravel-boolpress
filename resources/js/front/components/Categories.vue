@@ -1,6 +1,10 @@
 <template>
     <div class="categories">
-        <div v-for="category in categories" :key="category.slug">
+        <div
+            class="category"
+            v-for="category in categories"
+            :key="category.slug"
+        >
             <router-link
                 :to="{
                     name: 'single-category',
@@ -37,13 +41,22 @@ export default {
     justify-content: space-around;
     align-items: center;
     padding: 10px 0px;
+}
 
+.category {
+    background-color: rgba(0, 0, 0);
+    padding: 5px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     h4 {
         text-transform: uppercase;
+        padding: 0;
+        margin: 0;
     }
 
     a {
-        color: #000;
+        color: #fff;
         text-decoration: none;
     }
 }

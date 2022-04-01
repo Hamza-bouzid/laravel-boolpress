@@ -19,11 +19,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-h1 {
-    font-size: 60px;
-    text-align: center;
-    margin-top: 50px;
-    text-transform: uppercase;
-}
-</style>
+<style lang="scss" scoped></style>

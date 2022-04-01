@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2>{{ category.name }}</h2>
+        <h1>{{ category.name }} : {{ category.posts.length }}</h1>
         <div class="posts">
             <div class="post" v-for="post in category.posts" :key="post.slug">
                 <!--

@@ -10976,3 +10976,10 @@ body {
   margin: 0 auto;
 }
 
+h1 {
+  font-size: 60px;
+  text-align: center;
+  margin-top: 50px;
+  text-transform: uppercase;
+}
+
