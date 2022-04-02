@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\PostController;
 use App\Http\Controllers\Api\CategoryController;
+use App\Http\Controllers\Api\CommentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +28,7 @@ Route::get('posts/search/{title}' , [PostController::class, 'search']);
 Route::get('posts/{slug}' , [PostController::class, 'show']);
 Route::get('categories' , [CategoryController::class, 'index']);
 Route::get('categories/{slug}' , [CategoryController::class, 'show']);
+Route::post('/comments' , [CommentController::class, 'store']);
 //Route::resource('posts', PostController::class);
 
 // Rotte Protette

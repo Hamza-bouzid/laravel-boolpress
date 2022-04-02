@@ -19,6 +19,27 @@
                 </span>
             </div>
         </div>
+
+        <div class="comments">
+            <h3>Lascia un Commento</h3>
+            <form @submit.prevent="addComment()">
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Inserisci il tuo nome"
+                    v-model="formData.name"
+                />
+
+                <textarea
+                    class="form-control"
+                    name="content"
+                    id="content"
+                    rows="3"
+                    placeholder="Inserisci Commento"
+                ></textarea>
+                <button type="submit">Aggiungi Commento</button>
+            </form>
+        </div>
     </div>
 </template>
 
@@ -29,6 +50,11 @@ export default {
     data() {
         return {
             post: {},
+            formData: {
+                name: "",
+                content: "",
+                post_id: null,
+            },
         };
     },
     methods: {
@@ -39,6 +65,8 @@ export default {
                 day: "numeric",
             });
         },
+
+        addComment: function () {},
     },
 
     created() {

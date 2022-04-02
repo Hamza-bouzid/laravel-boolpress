@@ -2242,11 +2242,37 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Post",
   data: function data() {
     return {
-      post: {}
+      post: {},
+      formData: {
+        name: "",
+        content: "",
+        post_id: null
+      }
     };
   },
   methods: {
@@ -2256,7 +2282,8 @@ __webpack_require__.r(__webpack_exports__);
         month: "long",
         day: "numeric"
       });
-    }
+    },
+    addComment: function addComment() {}
   },
   created: function created() {
     var _this = this;
@@ -60785,6 +60812,62 @@ var render = function () {
           }),
         ],
         2
+      ),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "comments" }, [
+      _c("h3", [_vm._v("Lascia un Commento")]),
+      _vm._v(" "),
+      _c(
+        "form",
+        {
+          on: {
+            submit: function ($event) {
+              $event.preventDefault()
+              return _vm.addComment()
+            },
+          },
+        },
+        [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.formData.name,
+                expression: "formData.name",
+              },
+            ],
+            attrs: {
+              type: "text",
+              id: "name",
+              placeholder: "Inserisci il tuo nome",
+            },
+            domProps: { value: _vm.formData.name },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.formData, "name", $event.target.value)
+              },
+            },
+          }),
+          _vm._v(" "),
+          _c("textarea", {
+            staticClass: "form-control",
+            attrs: {
+              name: "content",
+              id: "content",
+              rows: "3",
+              placeholder: "Inserisci Commento",
+            },
+          }),
+          _vm._v(" "),
+          _c("button", { attrs: { type: "submit" } }, [
+            _vm._v("Aggiungi Commento"),
+          ]),
+        ]
       ),
     ]),
   ])
